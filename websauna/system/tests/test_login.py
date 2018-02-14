@@ -11,9 +11,9 @@ from webtest import TestApp
 
 # Websauna
 import websauna
-from websauna.tests.utils import EMAIL
-from websauna.tests.utils import PASSWORD
-from websauna.tests.utils import create_user
+from websauna.system.tests.utils import EMAIL
+from websauna.system.tests.utils import PASSWORD
+from websauna.system.tests.utils import create_user
 from websauna.utils.time import now
 
 

@@ -7,7 +7,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-assert sys.version_info >= (3, 5, 2), "Websauna needs Python 3.5.2 or newer, you have {version}".format(version=sys.version_info)
+assert sys.version_info >= (3, 5, 2), "websauna.system needs Python 3.5.2 or newer, you have {version}".format(version=sys.version_info)
 
 here = path.abspath(path.dirname(__file__))
 
@@ -17,9 +17,9 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 
 setup(
-    name='websauna',
+    name='websauna.system',
     namespace_packages=["websauna"],
-    version='1.0a8.dev0',
+    version='1.0b1.dev0',
     description=long_description.split("\n")[0],
     long_description=long_description,
     url='https://websauna.org',
@@ -45,8 +45,11 @@ setup(
     packages=find_packages(exclude=['docs']),
     include_package_data=True,
     zip_safe=False,
-    python_requires='>=3.5.2,<3.7',
+    python_requires='>=3.5.2,<3.8',
     install_requires=[
+        # Websauna dependencies
+        'websauna.utils',
+
         # Pyramid dependencies
         'pyramid>=1.9',
         'waitress',
@@ -98,6 +101,7 @@ setup(
             'zest.releaser[recommended]'
         ],
         'test': [
+            'websauna.tests',
             'cookiecutter',
             'codecov',
             'flake8',
@@ -147,17 +151,9 @@ setup(
 
         'paste.app_factory': [
             'main=websauna.system:main',
-            # Scheduler automated test suite entry point with some extra configured taskss
-            'task_test=websauna.tests.demotasks:main',
-            'tutorial_test=websauna.tests.tutorial:main',
+
         ],
 
-        'plaster.loader_factory': [
-            'ws=websauna.utils.config.loader:Loader',
-        ],
 
-        'plaster.wsgi_loader_factory': [
-            'ws=websauna.utils.config.loader:Loader',
-        ],
     },
 )

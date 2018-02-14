@@ -10,8 +10,8 @@ from webtest import TestApp   # noQA
 
 # Websauna
 import websauna
-from websauna.tests.utils import create_user
-from websauna.tests.utils import login
+from websauna.system.tests.utils import create_user
+from websauna.system.tests.utils import login
 from websauna.tests.webserver import customized_web_server
 
 from . import permissionsamples

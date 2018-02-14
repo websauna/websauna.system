@@ -10,12 +10,12 @@ def setup_wsgi():
 
     configurator.include("pyramid_jinja2")
     configurator.add_jinja2_renderer('.html')
-    configurator.add_jinja2_search_path('websauna.tests:templates/viewconfig', name='.html')
+    configurator.add_jinja2_search_path('websauna.system.tests:templates/viewconfig', name='.html')
 
     configurator.add_route("parent_hello", "/parent_hello")
     configurator.add_route("child_hello", "/child_hello")
 
-    from websauna.tests.viewconfig import testmodule
+    from websauna.system.tests.viewconfig import testmodule
     configurator.set_root_factory(testmodule.Root)
     configurator.scan(testmodule)
 
@@ -62,7 +62,7 @@ def test_invalid_override():
     """Trying to override non-view class causes an error.."""
     Configurator()
     with pytest.raises(RuntimeError):
-        from websauna.tests.viewconfig import brokentestmodule  # noqa
+        from websauna.system.tests.viewconfig import brokentestmodule  # noqa
 
 
 def test_rendered_override():

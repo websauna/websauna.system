@@ -28,7 +28,7 @@ def test_backup(dbsession, ini_settings):
     temp_fname = f.name
     f.close()
 
-    ini_settings["websauna.backup_script"] = "websauna.tests:backup_script.bash"
+    ini_settings["websauna.backup_script"] = "websauna.system.tests:backup_script.bash"
     ini_settings["backup_test.filename"] = temp_fname
 
     # We have some scoping issues with the dbsession here, make sure we close transaction at the end of the test

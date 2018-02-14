@@ -17,7 +17,7 @@ from webtest import TestApp
 @pytest.fixture(scope='module')
 def config():
     with testing.setUp() as config:
-        config.scan('websauna.tests.viewconfig.simple_route_tests_views')
+        config.scan('websauna.system.tests.viewconfig.simple_route_tests_views')
         yield config
 
 

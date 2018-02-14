@@ -48,7 +48,7 @@ def celery_worker(request, task_ini_file):
     """py.test fixture to shoot up Celery worker process to process our test tasks when scheduled."""
 
     # Uncomment this and run ws-celery from command line for debug
-    # ws-celery ws://websauna/tests/task-test.ini -- worker --loglevel=debug
+    # ws-celery ws://websauna/system/tests/task-test.ini -- worker --loglevel=debug
     # return
     cmdline = "ws-celery ws://{ini_file} -- worker".format(ini_file=task_ini_file)
 

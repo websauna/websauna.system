@@ -10,7 +10,7 @@ from splinter.driver import DriverAPI
 
 # Websauna
 import websauna
-from websauna.tests.utils import create_logged_in_user
+from websauna.system.tests.utils import create_logged_in_user
 from websauna.tests.webserver import customized_web_server
 from websauna.utils.slug import slug_to_uuid
 from websauna.utils.slug import uuid_to_slug
