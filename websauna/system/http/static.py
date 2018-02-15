@@ -21,7 +21,7 @@ from pyramid.path import AssetResolver
 from pyramid.request import Request
 
 # Websauna
-from websauna.compat.typing import DirEntry
+from websauna.system.compat.typing import DirEntry
 
 
 logger = logging.getLogger(__name__)

@@ -15,7 +15,7 @@ from websauna.system.devop.cmdline import init_websauna
 from websauna.system.task.celery import get_celery
 from websauna.system.user.models import User
 
-from . import demotasks
+from websauna.tests import demotasks
 
 
 @pytest.fixture(scope='module')

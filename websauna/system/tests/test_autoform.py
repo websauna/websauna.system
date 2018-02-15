@@ -24,7 +24,7 @@ def tutorial_app(request, paster_config):
 
         def run(self):
             super(Initializer, self).run()
-            from websauna.tests import tutorial
+            from websauna.system.tests import tutorial
             self.config.scan(tutorial)
 
     global_config, app_settings = paster_config
