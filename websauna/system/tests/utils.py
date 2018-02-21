@@ -1,6 +1,7 @@
 """Testing utility functions."""
 
 # Standard Library
+import subprocess
 import time
 import typing as t
 
@@ -222,3 +223,26 @@ def make_dummy_request(dbsession: Session, registry: Registry) -> IRequest:
     _request.registry = registry
 
     return _request
+
+
+def print_subprocess_fail(worker, cmdline):
+    print("{cmdline} output:".format(cmdline=cmdline))
+    print(worker.stdout.read().decode("utf-8"))
+    print(worker.stderr.read().decode("utf-8"))
+
+
+def execute_command(cmdline: t.List, folder: str, timeout=5.0):
+    """Run a command in a specific folder."""
+    worker = subprocess.Popen(cmdline, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
+
+    try:
+        worker.wait(timeout)
+    except subprocess.TimeoutExpired as e:
+        print_subprocess_fail(worker, cmdline)
+        raise AssertionError("execute_command did not properly exit") from e
+
+    if worker.returncode != 0:
+        print_subprocess_fail(worker, cmdline)
+        raise AssertionError("scaffold command did not properly exit: {}".format(" ".join(cmdline)))
+
+    return worker.returncode

@@ -77,7 +77,7 @@ script:
   # This env variable is passed to scaffold tests that test the tests themselves
   - export SPLINTER_WEBDRIVER=chrome
   - export TRAVIS=true
-  - tox -- --ini=websauna/conf/travis.ini --splinter-webdriver=chrome --splinter-headless=true --debug
+  - tox -- --ini=websauna/system/conf/travis.ini --splinter-webdriver=chrome --splinter-headless=true --debug
 
 after_success:
   # Update coverage information in codecov.io.
