@@ -1,6 +1,7 @@
 recursive-include websauna *.yaml *.py *.html *.bash *.css *.png *.js *.txt *.pt *.xml *tmpl *.ini *.mako
 include *.rst
 include *.txt
+include MANIFEST
 exclude docs
 
 
